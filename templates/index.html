@@ -1,0 +1,147 @@
+{%extends 'layoutadmin.html'%}
+{% block head %}
+<title>Halaman Home</title>
+{% endblock %}
+{% block body %}
+	<!-- <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Trendy Fashion Store</a>
+			</div>
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="#"><i class="glyphicon glyphicon-dashboard"></i> Admin Dashboard</a>
+					</li>
+					<li>
+						<a href="#"><i class="glyphicon glyphicon-plus-sign"></i> Add Product</a>
+					</li>
+					<li>
+						<a href="#"><i class="glyphicon glyphicon-chevron-left"></i> Back To Front</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav> -->
+	<!-- <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+		
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Music Store - admin preview</a>
+			</div>
+	
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active">
+						<a href="/admin">
+							<i class="glyphicon glyphicon-shopping-cart" style="margin-right: 12px;"></i> Admin Dashboard
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav> -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+				<!-- <ol class="carousel-indicators">
+					<li data-target="#carousel-id" data-slide-to="0" class=""></li>
+					<li data-target="#carousel-id" data-slide-to="1" class=""></li>
+				</ol> -->
+				<div class="carousel-inner">
+					<div class="carousel-item active" style="height: 300px;">
+						<img alt="First slide" src="{{ url_for('static', filename='imgs/r.jpg') }}" style="width: 100%;">
+						<!-- <div class="container"> -->
+							<!-- <div class="carousel-caption d-none d-md-block">
+								<h1>Lorem Ipsum</h1>
+								<p>
+									Lorem Ipsum
+								</p>
+							</div> -->
+						<!-- </div> -->
+					</div>
+					<div class="carousel-item" style="height: 300px;">
+						<img alt="Second slide" src="{{ url_for('static', filename='imgs/t.jpg') }}" style="width: 100%;">
+						<!-- <div class="container"> -->
+							<!-- <div class="carousel-caption d-none d-md-block">
+								<h1>Lorem Ipsum</h1>
+								<p>
+									Lorem Ipsum
+								</p>
+							</div> -->
+						<!-- </div> -->
+					</div>
+				</div>
+				<!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				  </button>
+				  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button> -->
+				
+				<!-- <a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+				<a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> -->
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="container" style="margin-top: 40px !important;">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<h4 class="text-center pageTitle">Available Products</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		{% for productt in products %}
+		<div class="col-lg-3">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="card"style="width: 18rem;">
+					<img style="width: 100%; border-radius: 6px;" src="{{productt[4]}}" alt="img">
+					<div class="card-body">
+
+						<h5  class="card-title">{{ productt[1] }}</h5>
+						<hr>
+						<p>
+							Rp. {{ productt[2] }}
+						</p>
+						<p>
+							{{ productt[3] }} Stok Tersedia
+						</p>
+
+						<hr />
+						<p>
+							<a href="/update/{{ productt[0] }}" class="btn btn-primary btn-sm">
+								Edit Produk
+							</a>
+							<a href="/delete/{{ productt[0] }}" class="btn btn-danger btn-sm">
+								<i class="glyphicon glyphicon-shopping-cart"></i> Hapus Produk
+							</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div><br>
+
+
+{% endblock %}

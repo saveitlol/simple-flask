@@ -1,0 +1,44 @@
+
+
+
+{%extends 'layoutadmin.html'%}
+{% block head %}
+<title>Halaman Admin</title>
+{% endblock %}
+{% block body %}
+	<div class="container mt-3">
+		<form action="{{ url_for('update', id=post[0]) }}" method="post" enctype="multipart/form-data"> 
+			<div class="row">
+			<div class="col">
+				<label for="inputEmail4">Nama Produk</label><br><br>
+				<input type="text" class="form-control" id="nama" name="nama" placeholder="Nama"value="{{ post[1] }}">
+			</div>
+			<div class="col">
+				<label for="inputPassword4">Harga Produk</label><br><br>
+				<input type="text" class="form-control" id="harga" name="harga" placeholder="Harga"value="{{ post[2] }}">
+			</div>
+			<div class="col">
+				<label for="inputPassword4">Stok Produk</label><br><br>
+				<input type="text" class="form-control" id="stok" name="stock" placeholder="Stock"value="{{ post[3] }}">
+			</div>
+			</div><br>
+			
+			<div class="form-row">
+				<label for="comment">Deskripsi</label><br><br>
+				<textarea class="form-control" rows="5" id="deskripsi" name="deskripsi">{{ post[5] }}</textarea> 
+				
+			</div><br>
+			<div class="form-group">
+				<label class="form-label" for="customFile" >New Image Upload </label>
+				<!-- <input type="file" class="form-control" id="customFile"onchange="preview()"> -->
+				<input type="file" class="form-control" name="file" id="customFile">
+
+			</div><br>
+			
+			<button type="submit" class="btn btn-primary">Add</button>
+		</form><br>
+
+
+		
+	</div>
+	{% endblock %}

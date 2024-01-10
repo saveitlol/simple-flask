@@ -1,0 +1,74 @@
+{%extends 'layoutadmin.html'%}
+{% block head %}
+<title>Halaman Admin</title>
+{% endblock %}
+{% block body %}
+	<div class="container mt-3">
+		<form action="/post" method="post" enctype="multipart/form-data"> 
+			<div class="row">
+			<div class="col">
+				<label for="inputEmail4">Nama Produk</label><br><br>
+				<input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
+			</div>
+			<div class="col">
+				<label for="inputPassword4">Harga Produk</label><br><br>
+				<input type="text" class="form-control" id="harga" name="harga" placeholder="Harga">
+			</div>
+			<div class="col">
+				<label for="inputPassword4">Stok Produk</label><br><br>
+				<input type="text" class="form-control" id="stok" name="stock" placeholder="Harga">
+			</div>
+			</div><br>
+			
+			<div class="form-row">
+				<label for="comment">Deskripsi</label><br><br>
+				<textarea class="form-control" rows="5" id="deskripsi" name="deskripsi"></textarea> 
+				
+			</div><br>
+			<div class="form-group">
+				<label class="form-label" for="customFile" >Image Upload </label>
+				<!-- <input type="file" class="form-control" id="customFile"onchange="preview()"> -->
+				<input type="file" class="form-control" name="file" id="customFile">
+
+			</div><br>
+			
+			<button type="submit" class="btn btn-primary">Add</button>
+		</form><br>
+
+
+		<div class="row">
+			{% for productt in products %}
+			<div class="col-lg-3">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="card"style="width: 18rem;">
+						<img style="width: 100%; border-radius: 6px;" src="{{ productt[4]}}" alt="img">
+						<div class="card-body">
+
+							<h5  class="card-title">{{ productt[1] }}</h5>
+							<hr>
+							<p>
+								Rp. {{ productt[2] }}
+							</p>
+							<p>
+								{{ productt[3] }} Stok Tersedia
+							</p>
+							<p>
+								{{ productt[5] }}
+							</p>
+							<hr />
+							<p>
+								<a href="/reupdate/{{ productt[0] }}" class="btn btn-primary btn-sm">
+									Edit Produk
+								</a>
+								<a href="/delete/{{ productt[0] }}" class="btn btn-danger btn-sm">
+									<i class="glyphicon glyphicon-shopping-cart"></i> Hapus Produk
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	{% endblock %}

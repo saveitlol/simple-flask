@@ -1,0 +1,39 @@
+{% extends 'layoutlogreg.html' %}
+{%block head%}
+<title>halaman login</title>
+{% endblock %}
+{% block body %}
+
+<section class="sign-in">
+    <div class="container">
+        <div class="signin-content">
+            <div class="signin-image">
+                <figure><img src="static/imgs/pe.png" alt="sing up image"></figure>
+            </div>
+
+            <div class="signin-form">
+                <h2 class="form-title">Login as Admin</h2>
+                
+                <form method="post" class="register-form" id="login-form">
+                    <div class="msg">{{ msg }}</div>
+                    <div class="form-group">
+                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="inpEmail" id="inpEmail" placeholder="Your Email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                        <input type="password" name="inpPass" id="inpPass" placeholder="Password"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+                        <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                    </div>
+                    <div class="form-group form-button">
+                        <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
